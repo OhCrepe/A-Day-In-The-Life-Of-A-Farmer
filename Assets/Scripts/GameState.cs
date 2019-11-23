@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
 {
 
     public float time;
+    public bool day;
     public Text milkText;
 
     private SpriteRenderer cycle;

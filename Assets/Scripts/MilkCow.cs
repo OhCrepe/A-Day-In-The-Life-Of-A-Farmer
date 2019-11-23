@@ -24,7 +24,7 @@ public class MilkCow : MonoBehaviour
     void Update()
     {
 
-        if(collectable){
+        if(collectable && gamestate.day){
             milkSymbol.SetActive(true);
         }else{
             milkSymbol.SetActive(false);
@@ -43,7 +43,7 @@ public class MilkCow : MonoBehaviour
     }
 
     void OnMouseDown(){
-        if(collectable){
+        if(collectable && gamestate.day){
             if(Vector3.Distance(player.transform.position, transform.position) < collectDistance){
                 StartCoroutine(collectMilkAndDelay());
             }
