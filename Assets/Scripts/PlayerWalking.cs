@@ -22,7 +22,7 @@ public class PlayerWalking : MonoBehaviour
     {
 
         SetVelocity();
-        ClampPosition();
+        //ClampPosition();
 
     }
 
