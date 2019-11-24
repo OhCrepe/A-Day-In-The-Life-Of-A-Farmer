@@ -29,7 +29,7 @@ public class SellMilk : MonoBehaviour
     }
 
     public void ReturnToFarm(){
-        sellable = false;
+        sellable = true;
         anim.SetTrigger("Return");
         gamestate.GainCash(cashIncrease);
         cashIncrease = 0;

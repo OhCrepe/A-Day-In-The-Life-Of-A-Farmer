@@ -113,6 +113,7 @@ Transform:
   m_Children:
   - {fileID: 7592808701678359974}
   - {fileID: 7592808701276381138}
+  - {fileID: 1724037923495780869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -194,6 +195,8 @@ MonoBehaviour:
   breeding: 0
   mate: {fileID: 0}
   child: {fileID: 7592808701590570026}
+  heart: {fileID: 3876235852296945463, guid: 381741b6c42beca43a79d5b3b7a2d8a7, type: 3}
+  adult: 0
 --- !u!50 &1760079116
 Rigidbody2D:
   serializedVersion: 4
@@ -294,3 +297,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7799060456480935112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724037923495780869}
+  m_Layer: 0
+  m_Name: HeartSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724037923495780869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799060456480935112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.77, y: 0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7592808701590570022}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

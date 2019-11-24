@@ -46,6 +46,7 @@ public class PlayerWalking : MonoBehaviour
                 moving = true;
             }
         }else if(x == 0 && y == 0){
+            anim.SetTrigger("NotWalk");
             if(moving){
                 anim.SetTrigger("NotWalk");
                 moving = false;
@@ -67,7 +68,6 @@ public class PlayerWalking : MonoBehaviour
         }else if(vel.x > 0.1f){
             anim.SetTrigger("Right");
         }
-        Debug.Log(vel);
 
     }
 

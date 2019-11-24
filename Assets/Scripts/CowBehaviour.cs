@@ -15,6 +15,7 @@ public class CowBehaviour : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject mate;
     public GameObject child;
+    public GameObject heart;
 
     private float growth;
     public bool adult;
@@ -117,7 +118,9 @@ public class CowBehaviour : MonoBehaviour
                     }
                 }
             }
-            StartCoroutine(Breeding());
+            if(mate == null){
+                StartCoroutine(Breeding());
+            }
         }
 
     }
@@ -140,6 +143,7 @@ public class CowBehaviour : MonoBehaviour
     }
 
     public void NotBreeding(){
+        Instantiate(heart, transform.Find("HeartSpawn").position, transform.rotation);
         breeding = false;
         mate = null;
         anim.SetTrigger("Stand");
