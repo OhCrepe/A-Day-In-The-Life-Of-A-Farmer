@@ -24,7 +24,7 @@ public class MilkCow : MonoBehaviour
     void Update()
     {
 
-        if(collectable && gamestate.day && !GetComponent<CowBehaviour>().breeding){
+        if(collectable && gamestate.day && !GetComponent<CowBehaviour>().breeding && GetComponent<CowBehaviour>().adult){
             milkSymbol.SetActive(true);
         }else{
             milkSymbol.SetActive(false);
@@ -43,7 +43,7 @@ public class MilkCow : MonoBehaviour
     }
 
     void OnMouseDown(){
-        if(collectable && gamestate.day && !GetComponent<CowBehaviour>().breeding){
+        if(collectable && gamestate.day && !GetComponent<CowBehaviour>().breeding && GetComponent<CowBehaviour>().adult){
             if(Vector3.Distance(player.transform.position, transform.position) < collectDistance){
                 StartCoroutine(collectMilkAndDelay());
             }

@@ -191,6 +191,9 @@ MonoBehaviour:
   speed: 2
   minWalkDelay: 4
   maxWalkDelay: 10
+  breeding: 0
+  mate: {fileID: 0}
+  child: {fileID: 7592808701590570026}
 --- !u!50 &1760079116
 Rigidbody2D:
   serializedVersion: 4
