@@ -11,6 +11,7 @@ public class CowBehaviour : MonoBehaviour
     private Vector3 destination, previousLocation;
     private bool moving;
     private GameState gamestate;
+    private Rigidbody2D rb;
 
     void Start(){
         gamestate = GameObject.Find("GameState").GetComponent<GameState>();
@@ -19,6 +20,7 @@ public class CowBehaviour : MonoBehaviour
         previousLocation = transform.position;
         moving = false;
         StartCoroutine(DecideDestination());
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void WakeUp(){
@@ -27,12 +29,14 @@ public class CowBehaviour : MonoBehaviour
     }
     public void Sleep(){
         anim.SetTrigger("Sleep");
+        destination = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        rb.velocity = new Vector3();
         if(moving && gamestate.day){
             transform.position = Vector3.MoveTowards(transform.position, destination, speed*Time.deltaTime);
             if(Vector3.Distance(transform.position, destination) < 0.01f || Vector3.Distance(transform.position, previousLocation) < 0.01f){
@@ -58,13 +62,15 @@ public class CowBehaviour : MonoBehaviour
         destination = new Vector3(transform.position.x + (distance*Mathf.Sin(angle)),
                                     transform.position.y + (distance*Mathf.Cos(angle)),
                                     transform.position.z);
-        if(destination.x < transform.position.x){
-            transform.rotation = new Quaternion(0, 0, 0, 0);
-        }else{
-            transform.rotation = new Quaternion(0, 180, 0, 0);
+        if(gamestate.day){
+            if(destination.x < transform.position.x){
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            }else{
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+            }
+            moving = true;
+            anim.SetTrigger("Walk");
         }
-        moving = true;
-        anim.SetTrigger("Walk");
     }
 
 }
