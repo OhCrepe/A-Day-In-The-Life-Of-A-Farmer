@@ -63,7 +63,7 @@ public class CowBehaviour : MonoBehaviour
         rb.velocity = new Vector3();
         if(breeding && gamestate.day){
             transform.position = Vector3.MoveTowards(transform.position, mate.transform.position, speed*Time.deltaTime);
-            if(Vector3.Distance(transform.position, mate.transform.position) <= 1.5f){
+            if(Vector3.Distance(transform.position, mate.transform.position) <= 2f){
                 Breed();
             }
         }else if(moving && gamestate.day){
@@ -84,7 +84,6 @@ public class CowBehaviour : MonoBehaviour
     }
 
     IEnumerator DecideDestination(){
-        Debug.Log("Waiting");
         yield return new WaitForSeconds(Random.Range(minWalkDelay, maxWalkDelay));
         float distance = Random.Range(2f, 5f);
         float angle = Random.Range(0f, 360f);
