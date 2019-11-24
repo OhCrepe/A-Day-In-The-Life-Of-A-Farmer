@@ -35,4 +35,18 @@ public class GameState : MonoBehaviour
         milkText.text = "x " + milkCounter;
     }
 
+    public void CowsToSleep(){
+        GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
+        foreach(GameObject cow in cows){
+            cow.GetComponent<CowBehaviour>().Sleep();
+        }
+    }
+
+    public void CowsWakeUp(){
+        GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
+        foreach(GameObject cow in cows){
+            cow.GetComponent<CowBehaviour>().WakeUp();
+        }
+    }
+
 }
