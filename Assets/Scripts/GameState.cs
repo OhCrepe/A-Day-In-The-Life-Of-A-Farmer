@@ -8,10 +8,11 @@ public class GameState : MonoBehaviour
 
     public float time;
     public bool day;
-    public Text milkText;
+    public Text milkText, moneyText;
 
     private SpriteRenderer cycle;
     private int milkCounter;
+    private int cash;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,10 @@ public class GameState : MonoBehaviour
         milkText.text = "x " + milkCounter;
     }
 
+    private void UpdateMoneyText(){
+        moneyText.text = "x " + cash;
+    }
+
     public void CowsToSleep(){
         GameObject[] cows = GameObject.FindGameObjectsWithTag("Cow");
         foreach(GameObject cow in cows){
@@ -47,6 +52,20 @@ public class GameState : MonoBehaviour
         foreach(GameObject cow in cows){
             cow.GetComponent<CowBehaviour>().WakeUp();
         }
+    }
+
+    public int GetMilkCounter(){
+        return milkCounter;
+    }
+
+    public void SellMilk(){
+        milkCounter = 0;
+        UpdateMilkText();
+    }
+
+    public void GainCash(int money){
+        cash += money;
+        UpdateMoneyText();
     }
 
 }
