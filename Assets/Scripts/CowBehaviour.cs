@@ -143,6 +143,7 @@ public class CowBehaviour : MonoBehaviour
     }
 
     public void NotBreeding(){
+        GetComponent<AudioSource>().Play();
         Instantiate(heart, transform.Find("HeartSpawn").position, transform.rotation);
         breeding = false;
         mate = null;

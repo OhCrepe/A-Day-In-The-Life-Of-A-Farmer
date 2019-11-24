@@ -24,6 +24,7 @@ public class SellMilk : MonoBehaviour
             cashIncrease = gamestate.GetMilkCounter()*10;
             anim.SetTrigger("DriveAway");
             gamestate.SellMilk();
+            PlayNoise();
         }
 
     }
@@ -33,6 +34,10 @@ public class SellMilk : MonoBehaviour
         anim.SetTrigger("Return");
         gamestate.GainCash(cashIncrease);
         cashIncrease = 0;
+    }
+
+    public void PlayNoise(){
+        GetComponent<AudioSource>().Play();
     }
 
 }

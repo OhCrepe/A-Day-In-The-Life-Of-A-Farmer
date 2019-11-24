@@ -7,7 +7,8 @@ public class MilkCow : MonoBehaviour
 
     public float minDelay, maxDelay, collectDistance;
 
-    private GameObject milkSymbol, player;
+    private GameObject milkSymbol, player; 
+    public GameObject milkPrefab;
     private bool collectable;
     private GameState gamestate;
 
@@ -43,9 +44,11 @@ public class MilkCow : MonoBehaviour
     }
 
     void OnMouseDown(){
+        GetComponent<AudioSource>().Play();
         if(collectable && gamestate.day && !GetComponent<CowBehaviour>().breeding && GetComponent<CowBehaviour>().adult){
             if(Vector3.Distance(player.transform.position, transform.position) < collectDistance){
                 StartCoroutine(collectMilkAndDelay());
+                Instantiate(milkPrefab, player.transform.Find("MilkSpawn").position, transform.rotation);
             }
         }
     }
